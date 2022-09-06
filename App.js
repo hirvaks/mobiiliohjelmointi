@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button, Alert, TextInput, Image } from 'react-native';
 import { useState } from 'react';
+import Laskin from './laskin';
 
 export default function App() {
 
@@ -27,7 +28,9 @@ export default function App() {
         style={{ width: 250, height: 100 }}
         source={{ uri: 'https://www.sttinfo.fi/data/images/00304/be7db042-6b61-49f9-9bcd-7fd41b7bc35d-w_960_h_960.jpg' }} 
       />
-      
+
+      <Laskin></Laskin>
+
       <StatusBar style="auto" />
     </View>
   );
