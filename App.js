@@ -1,17 +1,43 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button, Alert, TextInput, Image } from 'react-native';
 import { useState } from 'react';
-import Laskin from './laskin';
+import Laskin from './components/Laskin';
+import Arvaus from './components/Arvaus';
 
 export default function App() {
 
   const [text, setText] = useState('')
 
-  const buttonPressed = () => {
-    Alert.alert('You typed: ' + text)
+  const [t, setT] = useState('')
+
+  if (t === 1) {
+    return (
+      <View style={styles.container}>
+        <Laskin></Laskin>
+        <Button onPress={() => setT(0)} title='Back' />
+        <StatusBar style="auto" />
+      </View>
+    )
+  } else if (t === 2) {
+    return (
+      <View style={styles.container}>
+        <Arvaus></Arvaus>
+        <Button onPress={() => setT(0)} title='Back' />
+        <StatusBar style="auto" />
+      </View>
+    )
+  } else {
+    return (
+      <View style={styles.container}>
+        <Text>Valitse ohjelma</Text>
+        <Button onPress={() => setT(1)} title='Tehtävä 1 (Laskin)' />
+        <Button onPress={() => setT(2)} title='Tehtävä 2 (Numeron arvaus)' />
+        <StatusBar style="auto" />
+      </View>
+    )
   }
 
-  return (
+  /* return (
     <View style={styles.container}>
       <TextInput
         style={{ borderColor: 'gray', borderWidth: 1, width: 200}}
@@ -33,7 +59,7 @@ export default function App() {
 
       <StatusBar style="auto" />
     </View>
-  );
+  ); */
 }
 
 const styles = StyleSheet.create({
@@ -41,6 +67,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'space-around',
+    justifyContent: 'center',
+    margin: 100
   },
 });
