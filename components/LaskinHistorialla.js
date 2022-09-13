@@ -8,15 +8,15 @@ export default function LaskinHistorialla() {
 
   const [result, setResult] = useState('')
 
-  const [hitory, setHistory] = useState([])
+  const [history, setHistory] = useState([])
 
   const minus = () => {
-    setHistory([...hitory, { cal: n1 + ' - ' + n2 + ' = ' + (Number(n1) - Number(n2)) }])
+    setHistory([...history, { cal: n1 + ' - ' + n2 + ' = ' + (Number(n1) - Number(n2)) }])
     setResult(Number(n1) - Number(n2))
   }
 
   const plus = () => {
-    setHistory([...hitory, { cal: n1 + ' + ' + n2 + ' = ' + (Number(n1) + Number(n2)) }])
+    setHistory([...history, { cal: n1 + ' + ' + n2 + ' = ' + (Number(n1) + Number(n2)) }])
     setResult(Number(n1) + Number(n2))
   }
 
@@ -55,7 +55,7 @@ export default function LaskinHistorialla() {
 
       <Text>History</Text>
       <FlatList
-        data={hitory}
+        data={history}
         renderItem={({ item }) => <Text>{item.cal}</Text>}
         keyExtractor={(item, index) => index.toString()}
       />
