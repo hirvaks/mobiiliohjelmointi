@@ -1,5 +1,4 @@
-import { StatusBar } from 'expo-status-bar';
-import { Text, View, Button, Alert, TextInput } from 'react-native';
+import { Text, View, Button, Alert, TextInput, StyleSheet } from 'react-native';
 import { useState } from 'react';
 
 export default function Arvaus() {
@@ -14,31 +13,46 @@ export default function Arvaus() {
   const [count, setCount] = useState(1)
 
   const guess = () => {
-    setCount(count + 1) 
-    if (parseInt(random) === parseInt(arvaus)) {
-        Alert.alert('You guessed the number in ' + count + ' guesses')
-    } else if (parseInt(random) > parseInt(arvaus)) {
-        setText('Your guess ' + arvaus + ' is too low')
-    } else if (parseInt(random) < parseInt(arvaus)) {
-        setText('Your guess ' + arvaus + ' is too high')
+    if (Number(random) === Number(arvaus)) {
+      Alert.alert('You guessed the number in ' + count + ' guesses')
+    } else if (Number(random) > Number(arvaus)) {
+      setText('Your guess ' + arvaus + ' is too low')
+    } else if (Number(random) < Number(arvaus)) {
+      setText('Your guess ' + arvaus + ' is too high')
     }
+    setCount(count + 1)
   }
 
   return (
-    <View>
+    <View style={styles.container}>
 
       <Text>{text}</Text>
 
       <View>
         <TextInput
-          style={{ borderColor: 'gray', borderWidth: 1, width: 200}}
+          style={styles.input}
           onChangeText={arvaus => setArvaus(arvaus)}
           value={arvaus}
           keyboardType="numeric"
         />
       </View>
-      
+
       <Button onPress={() => guess()} title='Guess' />
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  input: {
+    borderColor: 'gray',
+    borderWidth: 1,
+    width: 200,
+    margin: 10
+  }
+})

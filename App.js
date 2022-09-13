@@ -1,14 +1,35 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button, Alert, TextInput, Image } from 'react-native';
-import { useState } from 'react';
+import Home from './components/Home';
 import Laskin from './components/Laskin';
 import Arvaus from './components/Arvaus';
+import LaskinHistorialla from './components/LaskinHistorialla';
+import Ostoslista from './components/Ostoslista';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+/* Oma navigointi importit
+import { StatusBar } from 'expo-status-bar';
+import { StyleSheet, Text, View, Button, Alert, TextInput, Image } from 'react-native';
+import { useState } from 'react';*/
 
 export default function App() {
 
-  const [text, setText] = useState('')
+  const Stack = createNativeStackNavigator()
 
-  const [t, setT] = useState('')
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="Tehtävä 1 (Laskin)" component={Laskin} />
+        <Stack.Screen name="Tehtävä 2 (Numeron arvaus)" component={Arvaus} />
+        <Stack.Screen name="Tehtävä 3 (Laskin historialla)" component={LaskinHistorialla} />
+        <Stack.Screen name="Tehtävä 4 (Ostoslista)" component={Ostoslista} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  )
+}
+
+/* Oma navigointi
+const [t, setT] = useState('')
 
   if (t === 1) {
     return (
@@ -26,41 +47,26 @@ export default function App() {
         <StatusBar style="auto" />
       </View>
     )
+  } else if (t === 3) {
+    return (
+      <View style={styles.container}>
+        <LaskinHistorialla></LaskinHistorialla>
+        <Button onPress={() => setT(0)} title='Back' />
+        <StatusBar style="auto" />
+      </View>
+    )
   } else {
     return (
       <View style={styles.container}>
         <Text>Valitse ohjelma</Text>
         <Button onPress={() => setT(1)} title='Tehtävä 1 (Laskin)' />
         <Button onPress={() => setT(2)} title='Tehtävä 2 (Numeron arvaus)' />
+        <Button onPress={() => setT(3)} title='Tehtävä 3 (Laskin historialla)' />
         <StatusBar style="auto" />
       </View>
     )
   }
-
-  /* return (
-    <View style={styles.container}>
-      <TextInput
-        style={{ borderColor: 'gray', borderWidth: 1, width: 200}}
-        onChangeText={text => setText(text)}
-        value={text}
-        keyboardType="numeric"
-      />
-
-      <Text>Hello!</Text>
-
-      <Button onPress={buttonPressed} title='Press me' />
-
-      <Image
-        style={{ width: 250, height: 100 }}
-        source={{ uri: 'https://www.sttinfo.fi/data/images/00304/be7db042-6b61-49f9-9bcd-7fd41b7bc35d-w_960_h_960.jpg' }} 
-      />
-
-      <Laskin></Laskin>
-
-      <StatusBar style="auto" />
-    </View>
-  ); */
-}
+} //App()
 
 const styles = StyleSheet.create({
   container: {
@@ -68,6 +74,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-    margin: 100
-  },
+    margin: 0
+  }
 });
+*/
