@@ -5,6 +5,7 @@ import LaskinHistorialla from './components/LaskinHistorialla';
 import Ostoslista from './components/Ostoslista';
 import Calculator from './components/Calculator';
 import History from './components/History';
+import ReseptienHaku from './components/ReseptienHaku';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
@@ -27,6 +28,7 @@ export default function App() {
         <Stack.Screen name="Tehtävä 4 (Ostoslista)" component={Ostoslista} />
         <Stack.Screen name="Tehtävä 5 (Laskin navigoinnilla) - Laskin" component={Calculator} />
         <Stack.Screen name="Tehtävä 5 (Laskin navigoinnilla) - Historia" component={History} />
+        <Stack.Screen name="Tehtävä 6 (Reseptien haku)" component={ReseptienHaku} />
       </Stack.Navigator>
     </NavigationContainer>
   )
