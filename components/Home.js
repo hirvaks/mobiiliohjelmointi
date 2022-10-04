@@ -39,6 +39,16 @@ export default function Home({ navigation }) {
                 title="Tehtävä 8 (Etsi osoite)"
                 onPress={() => navigation.navigate('Tehtävä 8 (Etsi osoite)')}
             /></View>
+
+            <View style={styles.home_buttons}><Button
+                title="Tehtävä 11 (Ostoslista & SQLite)"
+                onPress={() => navigation.navigate('Tehtävä 11 (Ostoslista & SQLite)')}
+            /></View>
+
+            <View style={styles.home_buttons}><Button
+                title="Tehtävä 12 (Ostoslista & Firebase)"
+                onPress={() => navigation.navigate('Tehtävä 12 (Ostoslista & Firebase)')}
+            /></View>
         </View>
     )
 }

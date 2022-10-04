@@ -7,8 +7,10 @@ import Calculator from './components/Calculator';
 import History from './components/History';
 import ReseptienHaku from './components/ReseptienHaku';
 import EtsiOsoite from './components/EtsiOsoite';
+import OstoslistaSQLite from './components/OstoslistaSQLite';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import OstoslistaFirebase from './components/OstoslistaFirebase';
 
 /* Oma navigointi importit
 import { StatusBar } from 'expo-status-bar';
@@ -31,6 +33,8 @@ export default function App() {
         <Stack.Screen name="Tehtävä 5 (Laskin navigoinnilla) - Historia" component={History} />
         <Stack.Screen name="Tehtävä 6 (Reseptien haku)" component={ReseptienHaku} />
         <Stack.Screen name="Tehtävä 8 (Etsi osoite)" component={EtsiOsoite} />
+        <Stack.Screen name="Tehtävä 11 (Ostoslista & SQLite)" component={OstoslistaSQLite} />
+        <Stack.Screen name="Tehtävä 12 (Ostoslista & Firebase)" component={OstoslistaFirebase} />
       </Stack.Navigator>
     </NavigationContainer>
   )
