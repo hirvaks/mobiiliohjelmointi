@@ -41,17 +41,8 @@ export default function OstoslistaSQLite() {
     }
 
     const listSeparator = () => {
-        return (
-          <View
-            style={{
-              height: 5,
-              width: "80%",
-              backgroundColor: "#fff",
-              marginLeft: "10%"
-            }}
-          />
-        )
-      }
+        return (<View style={styles.separator}/>)
+    }
 
     return (
         <View style={styles.container}>
@@ -67,7 +58,8 @@ export default function OstoslistaSQLite() {
                 onChangeText={amount => setAmount(amount)}
                 value={amount}
             />
-            <Button onPress={saveItem} title="Save" />
+            <Button onPress={saveItem} title="Add to list" />
+            <Text style={{marginTop: 30, fontSize: 20, fontWeight:'bold'}}>Shopping list</Text>
             <FlatList
                 style={styles.list}
                 data={produtList}
@@ -98,6 +90,7 @@ const styles = StyleSheet.create({
         margin: 5
     },
     list: {
+        marginTop: 10,
         marginLeft: "5%"
     },
     product: {
@@ -106,5 +99,11 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         flexDirection: 'row'
+    },
+    separator: {
+        height: 5,
+        width: "80%",
+        backgroundColor: "#fff",
+        marginLeft: "10%"
     }
 })
