@@ -1,3 +1,5 @@
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Home from './components/Home';
 import Laskin from './components/Laskin';
 import Arvaus from './components/Arvaus';
@@ -8,9 +10,9 @@ import History from './components/History';
 import ReseptienHaku from './components/ReseptienHaku';
 import EtsiOsoite from './components/EtsiOsoite';
 import OstoslistaSQLite from './components/OstoslistaSQLite';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import OstoslistaFirebase from './components/OstoslistaFirebase';
+import Kontaktilista from './components/Kontaktilista';
+import TekstiPuheeksi from './components/TekstiPuheeksi';
 
 /* Oma navigointi importit
 import { StatusBar } from 'expo-status-bar';
@@ -35,6 +37,8 @@ export default function App() {
         <Stack.Screen name="Tehtävä 8 (Etsi osoite)" component={EtsiOsoite} />
         <Stack.Screen name="Tehtävä 11 (Ostoslista & SQLite)" component={OstoslistaSQLite} />
         <Stack.Screen name="Tehtävä 12 (Ostoslista & Firebase)" component={OstoslistaFirebase} />
+        <Stack.Screen name="Tehtävä 13 (Kontakti)" component={Kontaktilista} />
+        <Stack.Screen name="Tehtävä 14 (Teksti puheeksi)" component={TekstiPuheeksi} />
       </Stack.Navigator>
     </NavigationContainer>
   )
